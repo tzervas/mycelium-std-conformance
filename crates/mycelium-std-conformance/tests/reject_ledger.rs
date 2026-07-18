@@ -45,6 +45,24 @@ fn read(rel_path: &str) -> String {
     std::fs::read_to_string(&p).unwrap_or_else(|e| panic!("reading {}: {e}", p.display()))
 }
 
+/// Layout gate (course-correction Phase B, 2026-07-18). This file audits SIBLING CRATE SOURCES
+/// (`crates/mycelium-l1/**`, `crates/mycelium-interp/**`, `crates/mycelium-core/**`) against the
+/// DN-80 reject ledger. In the monorepo all of those live beside this crate and the audit runs in
+/// full. In the standalone component repo those sources live in their own repos, so each audit
+/// test SKIPS with an explicit printed notice (never silently — G2): the canonical audit still
+/// runs in the monorepo, and each source repo's own CI covers its crates. Returns true when the
+/// sibling sources are present (monorepo layout).
+fn monorepo_sources_available() -> bool {
+    let present = repo_root().join("crates/mycelium-l1/src").is_dir();
+    if !present {
+        eprintln!(
+            "SKIP (component-repo layout): sibling-source audit needs the monorepo checkout \
+             (crates/mycelium-l1 not present here); the canonical audit runs in tzervas/mycelium"
+        );
+    }
+    present
+}
+
 // ════════════════════════════════════════════════════════════════════════════════════════════
 // §1 — Parse-level reject corpus (DN-80 Part A): exactly the 30 fixtures the ledger names.
 // ════════════════════════════════════════════════════════════════════════════════════════════
@@ -86,6 +104,9 @@ const LEDGERED_REJECT_FIXTURES: &[&str] = &[
 
 #[test]
 fn parse_level_reject_corpus_matches_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     let dir = repo_root().join("docs/spec/grammar/conformance/reject");
     let mut actual: BTreeSet<String> = std::fs::read_dir(&dir)
         .unwrap_or_else(|e| panic!("reading {}: {e}", dir.display()))
@@ -137,6 +158,9 @@ fn count_occurrences(haystack: &str, pattern: &str) -> usize {
 
 #[test]
 fn checkty_direct_checkerror_construction_count_matches_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     let src = read("crates/mycelium-l1/src/checkty.rs");
     let direct_new = count_occurrences(&src, "CheckError::new(");
     let direct_at = count_occurrences(&src, "CheckError::at(");
@@ -157,6 +181,9 @@ fn checkty_direct_checkerror_construction_count_matches_the_ledger() {
 
 #[test]
 fn fuse_law_checker_checkerror_construction_count_matches_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     // fuse.rs (M-965, DN-58 §A) is the `Fuse` semilattice-**law** checker — a new audited reject
     // file (DN-80 §4 row 40). Its four `CheckError::new(` sites are the idempotence /
     // commutativity / associativity violations plus the probe-time eval-failure refusal.
@@ -174,6 +201,9 @@ fn fuse_law_checker_checkerror_construction_count_matches_the_ledger() {
 
 #[test]
 fn checkty_self_err_call_count_matches_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     let src = read("crates/mycelium-l1/src/checkty.rs");
     let total = count_occurrences(&src, "self.err(");
     assert_eq!(
@@ -189,6 +219,9 @@ fn checkty_self_err_call_count_matches_the_ledger() {
 
 #[test]
 fn grade_checkerror_construction_count_matches_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     let src = read("crates/mycelium-l1/src/grade.rs");
     let total =
         count_occurrences(&src, "CheckError::at(") + count_occurrences(&src, "CheckError::new(");
@@ -306,6 +339,9 @@ fn assert_variant_set(src_path: &str, enum_name: &str, expected: &[&str]) {
 
 #[test]
 fn ambient_error_variants_match_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     assert_variant_set(
         "crates/mycelium-l1/src/ambient.rs",
         "AmbientError",
@@ -321,6 +357,9 @@ fn ambient_error_variants_match_the_ledger() {
 
 #[test]
 fn eval_error_variants_match_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     assert_variant_set(
         "crates/mycelium-interp/src/lib.rs",
         "EvalError",
@@ -348,6 +387,9 @@ fn eval_error_variants_match_the_ledger() {
 
 #[test]
 fn wf_error_variants_match_the_ledger() {
+    if !monorepo_sources_available() {
+        return;
+    }
     assert_variant_set(
         "crates/mycelium-core/src/lib.rs",
         "WfError",
@@ -369,6 +411,9 @@ fn wf_error_variants_match_the_ledger() {
 /// unexpectedly matched an unrelated `enum` snippet first).
 #[test]
 fn variant_extraction_is_non_vacuous() {
+    if !monorepo_sources_available() {
+        return;
+    }
     for (path, name) in [
         ("crates/mycelium-l1/src/ambient.rs", "AmbientError"),
         ("crates/mycelium-interp/src/lib.rs", "EvalError"),
