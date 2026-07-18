@@ -21,22 +21,22 @@ workspace = true
 # tier-legal (std -> core). See xtask/deps-strata.toml + DN-68.
 [dev-dependencies]
 # The L1 frontend + trusted execution stack the shared harness drives (three-way differential).
-mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "781d3fcceba82acfe6b0eb46650513bd78a2416b" }
-mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "cd32a1ed7ab7d2be38c9c3047da7318d182b7a1c" }
-mycelium-interp = { git = "https://github.com/tzervas/mycelium-runtime", rev = "ab9cee665b620ed80ab74ea61ea639817dc49077" }
-mycelium-cert = { git = "https://github.com/tzervas/mycelium-runtime", rev = "ab9cee665b620ed80ab74ea61ea639817dc49077" }
-mycelium-mlir = { git = "https://github.com/tzervas/mycelium-codegen", rev = "f144d635e970257aee5b618f8cdfaa736e2c391d" }
+mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "46d2515cbd86d2ae4d1365f4adcd2796737e9f0b" }
+mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "2b92f54349eb0d4f67e32e983874df76908b9ab6" }
+mycelium-interp = { git = "https://github.com/tzervas/mycelium-runtime", rev = "487b1e7049ff521b1a6fa33f376245089e7dc1e1" }
+mycelium-cert = { git = "https://github.com/tzervas/mycelium-runtime", rev = "487b1e7049ff521b1a6fa33f376245089e7dc1e1" }
+mycelium-mlir = { git = "https://github.com/tzervas/mycelium-codegen", rev = "505448cbfb5553a34aca726f0d1b884981a83631" }
 # The retained Rust oracles (RFC-0031 D6, test scope only; crates not retired). Each `std_<name>.rs`
 # differential compares its `.myc` port against the ACTUAL public surface of the matching oracle.
-mycelium-std-content = { git = "https://github.com/tzervas/mycelium-std-content", rev = "792eb7fe476ebf50bae1d8a20e3a7fba83a16d8b" }
-mycelium-std-core = { git = "https://github.com/tzervas/mycelium-std-core", rev = "580b64316774e22f0b7d5d495ca1d9b9d6536a60" }
-mycelium-std-diag = { git = "https://github.com/tzervas/mycelium-std-diag", rev = "b964be31c657a81e6b2197c8ba7ede1f01ac2cd3" }
-mycelium-std-error = { git = "https://github.com/tzervas/mycelium-std-error", rev = "42ae6b191bf92601aa8a5cceba26a2035d6f5542" }
-mycelium-std-numerics = { git = "https://github.com/tzervas/mycelium-std-numerics", rev = "cdfb2cdef08818091d47ec99f592947c1ccc4085" }
-mycelium-std-recover = { git = "https://github.com/tzervas/mycelium-std-recover", rev = "cc89777915a31e9ce9e8676a978a185eed467590" }
-mycelium-std-select = { git = "https://github.com/tzervas/mycelium-std-select", rev = "a082e7ff280c8ed1fcfc3e0d57e7020d39a17257" }
-mycelium-std-spore = { git = "https://github.com/tzervas/mycelium-std-spore", rev = "153581f234ddf2643ab2fb4e329086b4e128fc44" }
-mycelium-std-swap = { git = "https://github.com/tzervas/mycelium-std-swap", rev = "af04ae6ce366b883c8c56d266d19342f447c3ac3" }
-mycelium-std-ternary = { git = "https://github.com/tzervas/mycelium-std-ternary", rev = "523ce084d85e2f84aef3b645c36bde4df9ec613c" }
-mycelium-std-testing = { git = "https://github.com/tzervas/mycelium-std-testing", rev = "b67755101f65071b81ad965896406107a88e370c" }
-mycelium-std-time = { git = "https://github.com/tzervas/mycelium-std-time", rev = "fedd18411bf33cc2cd2b0d7ba41e1259719d23c0" }
+mycelium-std-content = { git = "https://github.com/tzervas/mycelium-std-content", rev = "a6059bae85256fed1272f38a8cbbd2dec2e8c56c" }
+mycelium-std-core = { git = "https://github.com/tzervas/mycelium-std-core", rev = "376762cc17853e1582684ececf9e760426bcfb0c" }
+mycelium-std-diag = { git = "https://github.com/tzervas/mycelium-std-diag", rev = "0ce2e431a4786ec5f974fc66e774cb0a9b77def4" }
+mycelium-std-error = { git = "https://github.com/tzervas/mycelium-std-error", rev = "dece7d3b1ce12df65cfba0131d151689f1e42a5e" }
+mycelium-std-numerics = { git = "https://github.com/tzervas/mycelium-std-numerics", rev = "2676276b1559f0c1c0b1c0c39ad48ba6ff89d639" }
+mycelium-std-recover = { git = "https://github.com/tzervas/mycelium-std-recover", rev = "ad8787428c0d8c1eb2bf3a8cd6504cc39bca00bf" }
+mycelium-std-select = { git = "https://github.com/tzervas/mycelium-std-select", rev = "a800a36061be6177ed4885707bf5d0f5e125ed73" }
+mycelium-std-spore = { git = "https://github.com/tzervas/mycelium-std-spore", rev = "29cbddd0a1480c6b784805bb8d7e5141497d7dc0" }
+mycelium-std-swap = { git = "https://github.com/tzervas/mycelium-std-swap", rev = "55bb071af6b428c933c17c7cd8045f8c8663e5ea" }
+mycelium-std-ternary = { git = "https://github.com/tzervas/mycelium-std-ternary", rev = "bcc63ee0fcd9e07ae1d9cc85241e251767a6d8bf" }
+mycelium-std-testing = { git = "https://github.com/tzervas/mycelium-std-testing", rev = "6f3a51aa61a60b508fa6a8a15cb7b12e4b736413" }
+mycelium-std-time = { git = "https://github.com/tzervas/mycelium-std-time", rev = "47ef9e7ec4143c97878083ca5c15930a21eeed83" }
