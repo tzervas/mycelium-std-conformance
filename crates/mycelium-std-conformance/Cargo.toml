@@ -25,7 +25,7 @@ mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "46d25
 mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "2b92f54349eb0d4f67e32e983874df76908b9ab6" }
 mycelium-interp = { git = "https://github.com/tzervas/mycelium-runtime", rev = "cb3a96348f718661dbd3db43224a036df272e177" }
 mycelium-cert = { git = "https://github.com/tzervas/mycelium-runtime", rev = "cb3a96348f718661dbd3db43224a036df272e177" }
-mycelium-mlir = { git = "https://github.com/tzervas/mycelium-codegen", rev = "505448cbfb5553a34aca726f0d1b884981a83631" }
+mycelium-mlir = { git = "https://github.com/tzervas/mycelium-codegen", rev = "0c1cc66afc0f11ad96994124dba28aa07a8e0d3f" }
 # The retained Rust oracles (RFC-0031 D6, test scope only; crates not retired). Each `std_<name>.rs`
 # differential compares its `.myc` port against the ACTUAL public surface of the matching oracle.
 mycelium-std-content = { git = "https://github.com/tzervas/mycelium-std-content", rev = "a6059bae85256fed1272f38a8cbbd2dec2e8c56c" }
@@ -33,8 +33,8 @@ mycelium-std-core = { git = "https://github.com/tzervas/mycelium-std-core", rev 
 mycelium-std-diag = { git = "https://github.com/tzervas/mycelium-std-diag", rev = "0ce2e431a4786ec5f974fc66e774cb0a9b77def4" }
 mycelium-std-error = { git = "https://github.com/tzervas/mycelium-std-error", rev = "dece7d3b1ce12df65cfba0131d151689f1e42a5e" }
 mycelium-std-numerics = { git = "https://github.com/tzervas/mycelium-std-numerics", rev = "2676276b1559f0c1c0b1c0c39ad48ba6ff89d639" }
-mycelium-std-recover = { git = "https://github.com/tzervas/mycelium-std-recover", rev = "ad8787428c0d8c1eb2bf3a8cd6504cc39bca00bf" }
-mycelium-std-select = { git = "https://github.com/tzervas/mycelium-std-select", rev = "a800a36061be6177ed4885707bf5d0f5e125ed73" }
+mycelium-std-recover = { git = "https://github.com/tzervas/mycelium-std-recover", rev = "31bb47e8ded88517b815c4d04814d6e88cac3edf" }
+mycelium-std-select = { git = "https://github.com/tzervas/mycelium-std-select", rev = "a8c984fca1e1146df5cb2a6a796d6af33b1ee8ab" }
 mycelium-std-spore = { git = "https://github.com/tzervas/mycelium-std-spore", rev = "29cbddd0a1480c6b784805bb8d7e5141497d7dc0" }
 mycelium-std-swap = { git = "https://github.com/tzervas/mycelium-std-swap", rev = "55bb071af6b428c933c17c7cd8045f8c8663e5ea" }
 mycelium-std-ternary = { git = "https://github.com/tzervas/mycelium-std-ternary", rev = "bcc63ee0fcd9e07ae1d9cc85241e251767a6d8bf" }
