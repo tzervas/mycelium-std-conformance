@@ -31,7 +31,7 @@ mycelium-mlir = { git = "https://github.com/tzervas/mycelium-codegen", rev = "b1
 mycelium-std-content = { git = "https://github.com/tzervas/mycelium-std-content", rev = "da8e5a3aabeab6d1453c3769bd346ebbdc93477c" }
 mycelium-std-core = { git = "https://github.com/tzervas/mycelium-std-core", rev = "19398dfd847eb9a5fc518149a714d7646abbb316" }
 mycelium-std-diag = { git = "https://github.com/tzervas/mycelium-std-diag", rev = "e2f67c1fffe5605189ca9d8ba1c761102ccdb63f" }
-mycelium-std-error = { git = "https://github.com/tzervas/mycelium-std-error", rev = "0753c7eb11b628f345e71dea92932dbeb7cb73ce" }
+mycelium-std-error = { git = "https://github.com/tzervas/mycelium-std-error", rev = "cbd40b4cee36c590d88e3cd73813694d4154daf9" }
 mycelium-std-numerics = { git = "https://github.com/tzervas/mycelium-std-numerics", rev = "f411b8c6d1c473efaf11b649b9921bd787069369" }
 mycelium-std-recover = { git = "https://github.com/tzervas/mycelium-std-recover", rev = "f64117e5e0b0dc9a09aca217787dd0ae087c7aa3" }
 mycelium-std-select = { git = "https://github.com/tzervas/mycelium-std-select", rev = "61aff4f89ee3a85c24b5757b49e9c0c64e79414d" }
