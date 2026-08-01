@@ -21,7 +21,7 @@ workspace = true
 # tier-legal (std -> core). See xtask/deps-strata.toml + DN-68.
 [dev-dependencies]
 # The L1 frontend + trusted execution stack the shared harness drives (three-way differential).
-mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "46d2515cbd86d2ae4d1365f4adcd2796737e9f0b" }
+mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "3958d2ea3c3921611e33f1f00e3469b29a939a76" }
 mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "31f7aaa956cca0e1c7a894eeaff4d10d58b5b2b8" }
 mycelium-interp = { git = "https://github.com/tzervas/mycelium-runtime", rev = "cb3a96348f718661dbd3db43224a036df272e177" }
 mycelium-cert = { git = "https://github.com/tzervas/mycelium-runtime", rev = "cb3a96348f718661dbd3db43224a036df272e177" }
